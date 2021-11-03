@@ -31,12 +31,16 @@ class NoteAdapter(
 
         holder.itemView.apply {
             noteTextView.text = item.noteText
-            if(position%2==0){holderLinearLayout.setBackgroundColor(Color.GRAY)}
+            if(position % 2 == 0){
+                holderLinearLayout.setBackgroundColor(Color.GRAY)
+            }
+
             ibEditNote.setOnClickListener {
                 activity.raiseDialog(item.id)
             }
             ibDeleteNote.setOnClickListener {
-                activity.deleteNote(item.id)
+                //activity.deleteNote(item.id) /*this line call the delete function directly*/
+                activity.deleteDialog(item.id) /*delete note with alert dialog*/
             }
         }
     }
